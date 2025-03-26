@@ -14,4 +14,10 @@ static const GestionarFormato gestionadores[] = {
  * @formato: Cadana con texto y especificadores
  * Return: numero de caracteres impresos
  */
+int _printf(const char *formato, ...)
+{
+	va_list args;
+	int contador = 0;
+	int encontrado;
 
+	va_start(args, formato);
