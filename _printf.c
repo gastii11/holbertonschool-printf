@@ -1,12 +1,17 @@
+#include "main.h"
+#include "_printf.h"
 #include <stdio.h>
-#include <stdarg.h>
+
+static const GestionarFormato gestionadores[] = {
+	{'c', gestionar_caracter},
+	{'s', gestionar_cadena},
+	{'d', gestionar_entero},
+	{'%', gestionar_porcentaje}
+};
+
 /**
- * _printf - Imprime valores basados en una cadena de formato
- * @format: Lista los tipos de identificadores (c: char, s: char*, %: %%)
+ * _printf - Versoin personalizada de printf
+ * @formato: Cadana con texto y especificadores
+ * Return: numero de caracteres impresos
  */
-int _printf(const char *format, ...)
-{
-	va_list args;
-	va_start (args, format);
-	count = 0;
-}
+
