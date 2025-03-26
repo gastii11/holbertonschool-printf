@@ -1,4 +1,5 @@
 #include "_printf.h"
+#include "main.h"
 #include <stdio.h>
 
 /**
@@ -39,9 +40,10 @@ void gestionar_cadena(va_list *args, int *contador)
 void gestionar_entero(va_list *args, int *contador)
 {
 	int num = va_arg(*args, int);
+	int i = 0;
 	char buffer[20];
 	entero_a_cadena(num, buffer);
-	for (int i = 0; buffer[i] != '\0'; i++)
+	for (i = 0; buffer[i] != '\0'; i++)
 	{
 		_putchar(buffer[i]);
 		(*contador)++;

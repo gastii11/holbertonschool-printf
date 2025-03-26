@@ -11,7 +11,7 @@
 typedef struct GestionarFormato
 {
 	char especificador;
-	void (*gestionador)(va_list *, int *);
+	void (*manejar)(va_list *, int *);
 } GestionarFormato;
 
 /* Prototipos */
