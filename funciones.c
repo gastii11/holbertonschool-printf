@@ -70,6 +70,11 @@ void gestionar_invalido(char caracter_invalido, int *contador)
 	*contador += 2;
 }
 
+/**
+ * entero_a_cadena - Convierte un entero a cadena ASCII.
+ * @num: Número a convertir.
+ * @buffer: Donde se almacenará la cadena resultante.
+ */
 void entero_a_cadena(int num, char *buffer)
 {
 	int i = 0;
