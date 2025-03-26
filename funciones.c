@@ -57,3 +57,15 @@ void gestionar_porcentaje(int *contador)
 	_putchar('%');
 	(*contador)++;
 }
+
+/**
+ * gestionar_invalido - Procesa especificadores no válidos (ej: %#).
+ * @caracter_invalido: Carácter inválido después de %.
+ * @contador: Puntero al contador de caracteres.
+ */
+void gestionar_invalido(char caracter_invalido, int *contador)
+{
+	_putchar('%');
+	_putchar(caracter_invalido);
+	*contador += 2;
+}
