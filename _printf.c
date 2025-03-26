@@ -17,8 +17,7 @@ static const GestionarFormato gestionadores[] = {
 int _printf(const char *formato, ...)
 {
 	va_list args;
-	int contador = 0;
-	int encontrado;
+	int contador = 0, encontrado;
 	int i = 0;
 
 	va_start(args, formato);
@@ -28,7 +27,8 @@ int _printf(const char *formato, ...)
 		{
 			formato++;
 			int encontrado = 0;
-			for (size_t i = 0; i < sizeof(gestionadores) / sizeof(gestionaodres[0]); i++)
+
+			for (size_t i = 0; i < sizeof(gestionador) / sizeof(gestionador[0]); i++)
 			{
 				if (*formato == gestionadores[i].especificadores)
 				{
@@ -48,3 +48,6 @@ int _printf(const char *formato, ...)
 			formato++;
 		}
 	}
+	va_end(args);
+	return (contador);
+}
