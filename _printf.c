@@ -19,5 +19,19 @@ int _printf(const char *formato, ...)
 	va_list args;
 	int contador = 0;
 	int encontrado;
+	int i = 0;
 
 	va_start(args, formato);
+	while (*formato)
+	{
+		if (*formato == '%')
+		{
+			formato++;
+		}
+		else
+		{
+			_putchar(*formato);
+			contador++;
+			formato++;
+		}
+	}
