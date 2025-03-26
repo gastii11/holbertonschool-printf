@@ -30,3 +30,20 @@ void gestionar_cadena(va_list *args, int *contador)
 		(*contador)++;
 	}
 }
+
+/**
+ * gestionar_entero - Procesa el especificador %d.
+ * @args: Lista de argumentos variables.
+ * @contador: Puntero al contador de caracteres.
+ */
+void gestionar_entero(va_list *args, int *contador)
+{
+	int num = va_arg(*args, int);
+	char buffer[20];
+	entero_a_cadena(num, buffer);
+	for (int i = 0; buffer[i] != '\0'; i++)
+	{
+		_putchar(buffer[i]);
+		(*contador)++;
+	}
+}
