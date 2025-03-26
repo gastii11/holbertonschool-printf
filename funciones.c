@@ -47,3 +47,13 @@ void gestionar_entero(va_list *args, int *contador)
 		(*contador)++;
 	}
 }
+
+/**
+ * gestionar_porcentaje - Procesa el especificador %% (imprime '%').
+ * @contador: Puntero al contador de caracteres.
+ */
+void gestionar_porcentaje(int *contador)
+{
+	_putchar('%');
+	(*contador)++;
+}
