@@ -27,6 +27,19 @@ int _printf(const char *formato, ...)
 		if (*formato == '%')
 		{
 			formato++;
+			int encontrado = 0;
+			for (size_t i = 0; i < sizeof(gestionadores) / sizeof(gestionaodres[0]); i++)
+			{
+				if (*formato == gestionadores[i].especificadores)
+				{
+					gestionadores[i].manejador(&args, &contador);
+					encontrado = 1;
+					break;
+				}
+			}
+			if (!encontrado)
+				gestionar_invalido(*formato, &contador);
+			formato++;
 		}
 		else
 		{
