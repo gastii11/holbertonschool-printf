@@ -10,5 +10,7 @@ void gestionar_entero(va_list *args, int *contador);
 void gestionar_porcentaje(va_list *args, int *contador);
 void gestionar_invalido(char caracter_invalido, int *contador);
 int _putchar(char c);
-
+int _printf(const char *formato, ...);
+void entero_a_cadena(int num, char *buffer);
+int _strlen(char *s);
 #endif /* GESTIONAR_H */

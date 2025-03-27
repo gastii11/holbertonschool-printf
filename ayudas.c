@@ -1,4 +1,5 @@
 #include "main.h"
+#include "_printf.h"
 /**
  * entero_a_cadena - Convierte un entero a cadena ASCII.
  * @num: Número a convertir.
