@@ -44,3 +44,19 @@ int _putchar(char c)
 {
         return (write(1, &c, 1));
 }
+
+/**
+ *_strlen -returns the length of a string.
+ * @s: is a cstring.
+  * Return: length of a string
+ */
+int _strlen(char *s)
+{
+	int longitud;
+	while (*s != '\0')
+	{
+		longitud++;
+		s++;
+	}
+	return (longitud);
+}
