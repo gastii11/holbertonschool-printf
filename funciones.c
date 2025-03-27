@@ -10,6 +10,7 @@
 void gestionar_caracter(va_list *args, int *contador)
 {
 	char c = va_arg(*args, int);
+	
 	_putchar(c);
 	(*contador)++;
 }
@@ -22,6 +23,7 @@ void gestionar_caracter(va_list *args, int *contador)
 void gestionar_cadena(va_list *args, int *contador)
 {
 	char *cadena = va_arg(*args, char *);
+
 	if (!cadena)
 		cadena = "(null)";
 	while (*cadena)
@@ -32,23 +34,6 @@ void gestionar_cadena(va_list *args, int *contador)
 	}
 }
 
-/**
- * gestionar_entero - Procesa el especificador %d.
- * @args: Lista de argumentos variables.
- * @contador: Puntero al contador de caracteres.
- */
-void gestionar_entero(va_list *args, int *contador)
-{
-	int num = va_arg(*args, int);
-	int i = 0;
-	char buffer[20];
-	entero_a_cadena(num, buffer);
-	for (i = 0; buffer[i] != '\0'; i++)
-	{
-		_putchar(buffer[i]);
-		(*contador)++;
-	}
-}
 
 /**
  * gestionar_porcentaje - Procesa el especificador %% (imprime '%').
@@ -74,20 +59,3 @@ void gestionar_invalido(char caracter_invalido, int *contador)
 }
 
 
-/**
- * invertir_cadena - invierte la cadena
- * @str: es un puntero a una string
- */
-void invertir_cadena(char *str) 
-{
-	int len = _strlen(str);
-	char temp;
-	int i;
-
-	for (i = 0; i < len/2; i++) 
-	{
-		temp = str[i];
-		str[i] = str[len - i - 1];
-		str[len - i - 1] = temp;
-	}
-}

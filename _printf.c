@@ -1,11 +1,10 @@
 #include "main.h"
 #include "_printf.h"
 #include <stdio.h>
-
+#include <stdarg.h>
 static const GestionarFormato manejar[] = {
 	{'c', gestionar_caracter},
 	{'s', gestionar_cadena},
-	{'d', gestionar_entero},
 	{'%', gestionar_porcentaje}
 };
 
@@ -20,11 +19,17 @@ int _printf(const char *formato, ...)
 	int contador = 0, encontrado = 0;
 	int i = 0;
 
+	if ((formato == NULL) || (formato[0] == '%' && formato[1] == '\0'))
+	{
+		return (-1);
+	}
+
 	va_start(args, formato);
 	while (*formato)
 	{
 		if (*formato == '%')
 		{
+			encontrado = 0;
 			formato++;
 
 			for (i = 0; i < (int)(sizeof(manejar) / sizeof(manejar[0])); i++)
