@@ -54,8 +54,9 @@ void gestionar_entero(va_list *args, int *contador)
  * gestionar_porcentaje - Procesa el especificador %% (imprime '%').
  * @contador: Puntero al contador de caracteres.
  */
-void gestionar_porcentaje(int *contador)
+void gestionar_porcentaje(va_list *args, int *contador)
 {
+	(void)args;
 	_putchar('%');
 	(*contador)++;
 }
@@ -102,4 +103,22 @@ void entero_a_cadena(int num, char *buffer)
 
 	buffer[i] = '\0';
 	invertir_cadena(buffer);
+}
+
+/**
+ * invertir_cadena - invierte la cadena
+ * @str: es un puntero a una string
+ */
+void invertir_cadena(char *str) 
+{
+	int len = _strlen(str);
+	char temp;
+	int i;
+
+	for (i = 0; i < len/2; i++) 
+	{
+		temp = str[i];
+		str[i] = str[len - i - 1];
+		str[len - i - 1] = temp;
+	}
 }

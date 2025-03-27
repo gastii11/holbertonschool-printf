@@ -14,7 +14,7 @@ typedef struct GestionarFormato
 	void (*manejar)(va_list *, int *);
 } GestionarFormato;
 
-/* Prototipos */
+
 int _printf(const char *formato, ...);
 void entero_a_cadena(int num, char *buffer);
 void invertir_cadena(char *str);
