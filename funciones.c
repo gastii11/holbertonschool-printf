@@ -61,8 +61,8 @@ void gestionar_invalido(char caracter_invalido, int *contador)
 void gestionar_entero(va_list *args, int *contador)
 {
 	int numero = va_arg(*args, int);
-	int digitos[20];
-	int indice = 2;
+	int digitos[12];
+	int indice = 0;
 	int i;
 
    
