@@ -1,7 +1,8 @@
 #include "_printf.h"
 #include "main.h"
 #include <stdio.h>
-
+#include <limits.h>
+#include <unistd.h>
 /**
  * gestionar_caracter - Procesa el especificador %c.
  * @args: Lista de argumentos variables.
@@ -58,40 +59,58 @@ void gestionar_invalido(char caracter_invalido, int *contador)
 	*contador += 2;
 }
 
+
+/**
+ * gestionar_entero - Maneja la impresión de enteros.
+ * @args: Lista de argumentos variádicos.
+ * @contador: Puntero al contador de caracteres impresos.
+ */
 void gestionar_entero(va_list *args, int *contador)
 {
-	int numero = va_arg(*args, int);
-	int digitos[12];
-	int indice = 0;
-	int i;
+	int num = va_arg(*args, int);
+	char buffer[20];
+	int i = 0, j;
+	unsigned int n;
+	char temp;
 
-   
-	if (numero < 0)
+	if (num == INT_MIN)
 	{
-		_putchar('-');
-		(*contador)++;
-		numero = -numero;
-	}
+		char int_min_str[] = "-2147483648";
 
-
-	if (numero == 0)
-	{
-		_putchar('0');
-		(*contador)++;
+		for (j = 0; int_min_str[j]; j++)
+		{
+			write(1, &int_min_str[j], 1);
+			(*contador)++;
+		}
 		return;
 	}
 
-	while (numero > 0)
+	if (num < 0)
 	{
-		digitos[indice] = numero % 10;
-		indice++;
-		numero /= 10;
+		write(1, "-", 1);
+		(*contador)++;
+		n = -num;
+	}
+	else
+	{
+		n = num;
 	}
 
+	do {
+		buffer[i++] = n % 10 + '0';
+		n /= 10;
+	} while (n != 0);
 
-	for (i = indice - 1; i >= 0; i--)
+	for (j = 0; j < i / 2; j++)
 	{
-		_putchar('0' + digitos[i]);
+		temp = buffer[j];
+		buffer[j] = buffer[i - j - 1];
+		buffer[i - j - 1] = temp;
+	}
+
+	for (j = 0; j < i; j++)
+	{
+		write(1, &buffer[j], 1);
 		(*contador)++;
 	}
 }
