@@ -5,7 +5,9 @@
 static const GestionarFormato manejar[] = {
 	{'c', gestionar_caracter},
 	{'s', gestionar_cadena},
-	{'%', gestionar_porcentaje}
+	{'%', gestionar_porcentaje},
+	{'d', gestionar_entero},
+	{'i', gestionar_entero}
 };
 
 /**

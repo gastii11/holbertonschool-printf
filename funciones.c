@@ -58,4 +58,40 @@ void gestionar_invalido(char caracter_invalido, int *contador)
 	*contador += 2;
 }
 
+void gestionar_entero(va_list *args, int *contador)
+{
+	int numero = va_arg(*args, int);
+	int digitos[20];
+	int indice = 2;
+	int i;
 
+   
+	if (numero < 0)
+	{
+		_putchar('-');
+		(*contador)++;
+		numero = -numero;
+	}
+
+
+	if (numero == 0)
+	{
+		_putchar('0');
+		(*contador)++;
+		return;
+	}
+
+	while (numero > 0)
+	{
+		digitos[indice] = numero % 10;
+		indice++;
+		numero /= 10;
+	}
+
+
+	for (i = indice - 1; i >= 0; i--)
+	{
+		_putchar('0' + digitos[i]);
+		(*contador)++;
+	}
+}
