@@ -1,3 +1,8 @@
+#include "main.h"
+#include <stdio.h>
+#include <limits.h>
+#include "_printf.h"
+#include <unistd.h>
 /**
  * gestionar_entero - Maneja la impresión de enteros.
  * @args: Lista de argumentos variádicos.
