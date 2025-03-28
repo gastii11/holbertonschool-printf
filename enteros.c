@@ -11,49 +11,30 @@
 void gestionar_entero(va_list *args, int *contador)
 {
 	int num = va_arg(*args, int);
-	char buffer[20];
-	int i = 0, j;
+	char buffer[20], temp, *int_min = "-2147483648";
 	unsigned int n;
-	char temp;
+	int i = 0, j;
 
 	if (num == INT_MIN)
 	{
-		char int_min_str[] = "-2147483648";
-
-		for (j = 0; int_min_str[j]; j++)
-		{
-			write(1, &int_min_str[j], 1);
-			(*contador)++;
-		}
+		for (j = 0; int_min[j]; j++, (*contador)++)
+			write(1, &int_min[j], 1);
 		return;
 	}
-
 	if (num < 0)
 	{
 		write(1, "-", 1);
 		(*contador)++;
-		n = -num;
 	}
-	else
-	{
-		n = num;
-	}
-
 	do {
 		buffer[i++] = n % 10 + '0';
-		n /= 10;
-	} while (n != 0);
-
+	} while ((n /= 10) != 0);
 	for (j = 0; j < i / 2; j++)
 	{
 		temp = buffer[j];
 		buffer[j] = buffer[i - j - 1];
 		buffer[i - j - 1] = temp;
 	}
-
-	for (j = 0; j < i; j++)
-	{
+	for (j = 0; j < i; j++, (*contador)++)
 		write(1, &buffer[j], 1);
-		(*contador)++;
-	}
 }
