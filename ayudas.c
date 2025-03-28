@@ -11,7 +11,7 @@
  */
 int _putchar(char c)
 {
-        return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -22,6 +22,7 @@ int _putchar(char c)
 int _strlen(char *s)
 {
 	int longitud;
+
 	while (*s != '\0')
 	{
 		longitud++;
@@ -29,4 +30,3 @@ int _strlen(char *s)
 	}
 	return (longitud);
 }
-
