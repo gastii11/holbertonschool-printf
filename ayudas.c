@@ -21,7 +21,7 @@ int _putchar(char c)
  */
 int _strlen(char *s)
 {
-	int longitud;
+	int longitud = 0;
 
 	while (*s != '\0')
 	{
